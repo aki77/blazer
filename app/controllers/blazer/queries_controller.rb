@@ -270,6 +270,7 @@ module Blazer
 
         respond_to do |format|
           format.html do
+            @rows = @rows.slice(0, Blazer.row_limit) if Blazer.row_limit
             render layout: false
           end
           format.csv do

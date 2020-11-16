@@ -56,6 +56,7 @@ module Blazer
     attr_accessor :override_csp
     attr_accessor :slack_webhook_url
     attr_accessor :mapbox_access_token
+    attr_accessor :row_limit
   end
   self.audit = true
   self.user_name = :name
