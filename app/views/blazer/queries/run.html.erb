@@ -25,7 +25,11 @@
       </p>
     <% end %>
     <p class="text-muted" style="margin-bottom: 10px;">
-      <%= pluralize(@rows.size, "row") %>
+      <% if @result.rows.size != @rows.size %>
+        <%= pluralize(@rows.size, "row") %> out of <%= pluralize(@result.rows.size, "row") %>
+      <% else %>
+        <%= pluralize(@rows.size, "row") %>
+      <% end %>
 
       <% @checks.select(&:state).each do |check| %>
         &middot; <small class="check-state <%= check.state.parameterize.gsub("-", "_") %>"><%= link_to check.state.upcase, edit_check_path(check) %></small>
